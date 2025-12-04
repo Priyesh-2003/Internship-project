@@ -63,14 +63,14 @@ nav button {
   border-radius: 6px;
   cursor: pointer;
   font-size: 16px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 2s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 2s ease;
   /* transition: 0.3s ease; */
-
 }
-nav button:hover{
-    transform: scale(1.05);
-box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
-    }
+nav button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
 /* nav button:hover {
   background-color: rgb(7, 6, 66);
 } */
@@ -115,29 +115,20 @@ main button {
 }
 #d1,
 #d2 {
-  border-radius: 12px; /* smooth rounded corners */
+  border-radius: 12px;
   height: 300px;
-  padding: 40px;
+  padding: 60px 40px; /* top/bottom 60px, left/right 40px */
   display: flex;
   flex-direction: column;
-  /* margin-top: 100px; */
-  /* padding-top: 60px; */
+  justify-content: space-between;
   font-size: 20px;
   color: rgb(105, 30, 192);
-  justify-content: space-between;
-  #d1,
-  #d2 {
-    border-radius: 12px;
-    height: 300px;
-    display: flex;
-    flex-direction: column;
-    font-size: 20px;
-    color: rgb(105, 30, 192);
-    justify-content: space-between;
-
-    /* Your padding in ONE line */
-    padding: 60px 40px;
-  }
+  transition: 0.3s ease-in-out;
+}
+#d1:hover,
+#d2:hover {
+  background-color: rgba(10, 8, 94, 0.12); /* soft capsule bg */
+  transform: translateY(-7px);
 }
 
 .Cards {
@@ -215,16 +206,13 @@ header button {
   height: auto;
   /* background-color: aqua; */
 }
-#conf-kid1 h1 span{
-    /* font-family: "Playfair Display", serif; */
-    /* font-family: "Great Vibes", cursive; */
-    /* font-family: "Dancing Script", cursive; */
-/* font-family: "Allura", cursive; */
-/* font-family: "Parisienne", cursive; */
-font-family: "Cormorant Garamond", serif;
-
-
-
+#conf-kid1 h1 span {
+  /* font-family: "Playfair Display", serif; */
+  /* font-family: "Great Vibes", cursive; */
+  /* font-family: "Dancing Script", cursive; */
+  /* font-family: "Allura", cursive; */
+  /* font-family: "Parisienne", cursive; */
+  font-family: "Cormorant Garamond", serif;
 }
 #conf-kid2 {
   background-color: transparent;
@@ -288,15 +276,15 @@ font-family: "Cormorant Garamond", serif;
   position: relative;
   height: 800px;
 }
-#member{
-    border: 2px solid black;
-    width: 300px;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
+#member {
+  border: 2px solid black;
+  width: 300px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
 }
 #callhead {
   display: flex;
@@ -344,24 +332,25 @@ font-family: "Cormorant Garamond", serif;
   background-color: rgb(10, 8, 94);
   color: white;
   cursor: pointer;
-transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 2s ease;
-
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 2s ease;
 }
-#callhead button:hover{
-    /* background-color: rgba(10, 8, 94, 0.12); */
-    transform: scale(1.05);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+#callhead button:hover {
+  /* background-color: rgba(10, 8, 94, 0.12); */
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 #member {
-    position: absolute;
-    top: 450px;
-    left: 100px;   /* ← THIS semicolon was missing */
-    /* background-color: rgb(10, 8, 94); */
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 2s ease;
+  position: absolute;
+  top: 450px;
+  left: 100px; /* ← THIS semicolon was missing */
+  /* background-color: rgb(10, 8, 94); */
+  transition: transform 0.3s ease, box-shadow 0.3s ease,
+    background-color 2s ease;
 }
 
-#member:hover{
-     transform: scale(1.05); /* enlarge button */
+#member:hover {
+  transform: scale(1.05); /* enlarge button */
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
 }
 #changingWords {
