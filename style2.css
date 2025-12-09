@@ -46,7 +46,7 @@ nav a:hover {
 
 /* LOGIN BUTTON SEPARATE (no capsule on hover) */
 nav button {
-  margin-left: 15px;
+  /* margin-left: 15px; */
   padding: 8px 16px;
   background-color: var(--accent-teal);
   color: white;
@@ -418,4 +418,39 @@ textarea {
 .footer-socials a:hover {
   background: var(--accent-teal);
   transform: translateY(-3px);
+}
+@media (max-width: 768px) {
+  header {
+    display: flex;
+    flex-direction: column;    /* LOGO ON TOP */
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    padding: 20px 0;
+  }
+
+  header img {
+    display: block;
+    margin: 0 auto;           /* center the logo */
+  }
+
+  header nav {
+    width: 100%;
+    display: flex;
+    flex-direction: column;   /* stack menu links */
+    align-items: center;
+    gap: 15px;
+  }
+
+  nav a {
+    width: 100%;
+    text-align: center;
+  }
+
+  nav button {
+    width: 90%;
+    margin: 0 auto;
+    padding: 12px 0;
+    display: block;
+  }
 }
