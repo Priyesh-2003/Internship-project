@@ -913,10 +913,11 @@ main button {
   .cont1 {
     padding: 15px;
   }
-
-  header {
-    flex-direction: column;
-    gap: 15px;
+header {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
   }
 
   #logo {
@@ -1147,9 +1148,7 @@ main button {
     transform: none;
   }
 }
-/* FIX PHONE + TABLET LAYOUT FOR JOIN & ENGAGE */
 
-/* Tablets (<= 768px) */
 @media (max-width: 768px) {
 
   #members1,
@@ -1167,7 +1166,6 @@ main button {
   }
 }
 
-/* Phones (<= 480px) */
 @media (max-width: 480px) {
 
   #members1,
@@ -1182,5 +1180,151 @@ main button {
   #members2 div {
     max-width: 100%;
     width: 100%;
+  }
+}
+
+
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 24px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 1001;
+  position: relative;
+}
+
+.hamburger span {
+  width: 100%;
+  height: 3px;
+  background-color: rgb(10, 8, 94);
+  border-radius: 3px;
+  transition: all 0.3s ease;
+  transform-origin: center;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: translateY(10.5px) rotate(45deg);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: translateY(-10.5px) rotate(-45deg);
+}
+
+/* Mobile Menu Overlay */
+.menu-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.menu-overlay.active {
+  display: block;
+  opacity: 1;
+}
+
+/* Mobile Navigation Styles */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex;
+  }
+  .cont1 {
+    display: flex;
+    justify-content: space-between; /* logo left, hamburger right */
+    align-items: center;
+    width: 100%;
+    padding: 10px 20px;
+  }
+  nav {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 280px;
+    height: 100vh;
+    background: linear-gradient(135deg, #f5e6ff 0%, #ffffff 100%);
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: stretch;
+    padding: 100px 30px 30px 30px;
+    gap: 0;
+    box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+    transition: right 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    z-index: 1000;
+    overflow-y: auto;
+  }
+
+  nav.active {
+    right: 0;
+  }
+
+  nav a {
+    width: 100%;
+    padding: 15px 20px;
+    margin: 5px 0;
+    border-radius: 12px;
+    font-size: 16px;
+    text-align: left;
+    border-left: 3px solid transparent;
+    transition: all 0.3s ease;
+  }
+
+  nav a:hover {
+    background-color: rgba(102, 45, 195, 0.1);
+    border-left-color: rgb(102, 45, 195);
+    transform: translateX(5px);
+  }
+
+  nav button {
+    width: 100%;
+    margin: 20px 0 0 0;
+    padding: 15px 20px;
+    border-radius: 12px;
+    font-size: 16px;
+    background-color: rgb(102, 45, 195);
+    transition: all 0.3s ease;
+  }
+
+  nav button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(102, 45, 195, 0.3);
+  }
+}
+
+@media (max-width: 480px) {
+  .hamburger {
+    width: 28px;
+    height: 22px;
+  }
+
+  nav {
+    width: 260px;
+    padding: 90px 25px 25px 25px;
+  }
+
+  nav a {
+    font-size: 15px;
+    padding: 12px 16px;
+  }
+
+  nav button {
+    font-size: 15px;
+    padding: 12px 16px;
   }
 }
