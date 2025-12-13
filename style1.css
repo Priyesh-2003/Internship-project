@@ -5,21 +5,19 @@
   font-style: normal;
 }
 .wrapper {
-  max-width: 1000px;
+  max-width: 1160px;
   margin: 0 auto;
   /* padding: 0 20px; */
 }
 
 /* change */
-header .wrapper {
+/* header .wrapper {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px 0;
   width: 100%;
-}
-
-
+} */
 
 :root {
   --primary: #002b5b; /* Deep Navy */
@@ -36,16 +34,65 @@ header .wrapper {
   font-family: "Poppins", sans-serif;
 }
 
+/* header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+ 
+  background-color: var(--soft-bg);
+  width: 100%;
+} */
 header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* padding: 20px 40px; */
-  background-color: var(--soft-bg);
-  width: 100%;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+nav {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
 }
 
 nav a {
+  position: relative;
+  padding: 8px 16px;
+  border-radius: 20px;
+  text-decoration: none;
+  color: rgb(10, 8, 94);
+  font-size: 18px;
+  transition: 0.3s ease-in-out;
+  white-space: nowrap;
+}
+
+nav a:hover {
+  background-color: rgba(10, 8, 94, 0.12);
+  transform: translateY(-2px);
+}
+
+nav button {
+  margin-left: 15px;
+  padding: 8px 16px;
+  background-color: rgb(10, 8, 94);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* nav a {
   position: relative;
   padding: 8px 16px;
   border-radius: 20px;
@@ -55,15 +102,15 @@ nav a {
   transition: 0.3s ease-in-out;
 }
 nav a:hover {
-  background-color: rgba(0, 166, 166, 0.15); /* soft capsule */
+  background-color: rgba(0, 166, 166, 0.15); 
   padding: 8px 16px;
   border-radius: 20px;
-  transform: translateY(-2px); /* slight lift effect */
+  transform: translateY(-2px); 
 }
 
-/* LOGIN BUTTON SEPARATE (no capsule on hover) */
+
 nav button {
-  /* margin-left: 15px; */
+
   padding: 8px 16px;
   background-color: var(--accent-teal);
   color: white;
@@ -76,7 +123,7 @@ nav button {
 
 nav button:hover {
   background-color: #008c8c;
-}
+} */
 
 .home-hero {
   height: 400px;
@@ -266,14 +313,13 @@ header button {
   }
 }
 
-
 .story-section {
   padding: 100px 20px;
   background: var(--soft-bg);
 }
 
 .story-content {
-  max-width: 1000px;
+  max-width: 1160px;
   margin: 0 auto;
 }
 
@@ -547,16 +593,16 @@ header button {
   .hero p {
     font-size: 1.1em;
   }
-@media (max-width: 768px) {
-  .mission-container,
-  .vision-container {
-    display: grid;
-    grid-template-columns: 1fr;  /* ✅ one column */
-    gap: 40px;
-    padding: 0 20px;             /* mobile spacing */
-    margin-bottom: 80px;
+  @media (max-width: 768px) {
+    .mission-container,
+    .vision-container {
+      display: grid;
+      grid-template-columns: 1fr; /* ✅ one column */
+      gap: 40px;
+      padding: 0 20px; /* mobile spacing */
+      margin-bottom: 80px;
+    }
   }
-}
 
   .mission-visual,
   .vision-visual {
@@ -817,7 +863,7 @@ header button {
     background-color: var(--soft-bg);
   }
   /* change */
-/* 
+  /* 
   header .wrapper {
     display: flex;
     flex-direction: column;
@@ -833,12 +879,11 @@ header button {
     width: 100%;
     display: flex;
     flex-direction: column;
-    align-items: center;    /* center the menu links */
+    align-items: center; /* center the menu links */
     gap: 15px;
   }
 
-  nav a
- {
+  nav a {
     text-align: center;
     width: 100%;
   }
@@ -858,9 +903,6 @@ header button {
     padding: 0 20px;
   }
 }
-
-
-
 
 /* Hamburger Button */
 .hamburger {
@@ -1020,4 +1062,3 @@ header button {
     padding: 12px 16px !important;
   }
 }
-
