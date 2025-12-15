@@ -12,21 +12,32 @@
 
 <body class="about-body">
 
-    <header class="cont1">
-        <img id='logo' src="assets/Logo.avif" height="70px" alt="">
+    <header>
+        <div class="cont1">
+            <img id='logo' src="assets/Logo.avif" height="70px" alt="COV Logo">
 
+            <!-- Hamburger Button - ADDED -->
+            <button class="hamburger" id="hamburgerBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
 
-        <nav id="navMenu">
-            <a href="about.html">About Us</a>
-            <a href="#membership">Membership</a>
-            <a href="#training">Training & Courses</a>
-            <a href="#events">Events</a>
-            <a href="#osp">COV Sphere</a>
-            <a href="contact.html">Contact</a>
-            <a href="reg1.html">Register Now</a>
-            <button>Log In</button>
-        </nav>
+            <nav id="navMenu">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="#membership">Membership</a>
+                <a href="#training">Training & Courses</a>
+                <a href="#events">Events</a>
+                <a href="#osp">COV Sphere</a>
+                <a href="contact.html">Contact</a>
+                <a href="reg1.html">Register Now</a>
+                <button>Log In</button>
+            </nav>
+        </div>
     </header>
+    
+    <!-- Menu Overlay - ADDED -->
     <div class="menu-overlay" id="menuOverlay"></div>
 
     <section class="about-hero">
@@ -34,9 +45,6 @@
             <h1>About Us</h1>
         </div>
     </section>
-
-
-
 
     <section class="story-section">
         <div class="story-content">
@@ -58,11 +66,8 @@
         </div>
     </section>
 
-
     <section class="mission-vision">
         <div class="wrapper">
-
-
 
             <div class="mission-container">
                 <div class="mission-content">
@@ -98,7 +103,6 @@
                 </div>
             </div>
 
-
             <div class="vision-container">
                 <div class="vision-visual">
                     <div class="hexagon hex-1"></div>
@@ -130,14 +134,10 @@
                 </div>
             </div>
         </div>
-
     </section>
-
-
 
     <section class="contact-section">
         <div class="contact-container">
-
 
             <div class="subscribe-column">
                 <h2>STAY CONNECTED</h2>
@@ -158,7 +158,6 @@
                     <a href="#"><i class="fa-brands fa-whatsapp"></i></a>
                 </div>
             </div>
-
 
             <div class="contact-column">
                 <h2>REACH US</h2>
@@ -187,11 +186,9 @@
                     </div>
                 </div>
 
-
             </div>
         </div>
     </section>
-
 
     <footer class="footer">
         <div class="footer-content">
@@ -201,12 +198,12 @@
 
             <div class="footer-legal">
                 <a href="#">FAQ</a>
-                <a href="#">Terms & Conditions</i></a>
+                <a href="#">Terms & Conditions</a>
                 <a href="#">Policy</a>
             </div>
         </div>
     </footer>
-    </div>
+
     <script src="about_script.js"></script>
 
 </body>

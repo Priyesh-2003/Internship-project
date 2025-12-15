@@ -21,7 +21,15 @@
                  <img id='logo' src="assets/Logo.avif" height="70px" alt="">
             </div>
         </div>
-        <nav>
+        
+        <!-- Hamburger Button -->
+        <button class="hamburger" id="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        
+        <nav id="navMenu">
             <a href="about.html">About Us</a>
             <a href="#membership">Membership</a>
             <a href="#training">Training & Courses</a>
@@ -30,10 +38,12 @@
             <a href="contact.html">Contact</a>
             <a href="reg1.html">Register Now</a>
             <button class="login-btn">Log In</button>
-            <!-- <button class="join-btn">Register Now</button> -->
         </nav>
     </div>
 </header>
+
+<!-- Menu Overlay -->
+<div class="menu-overlay" id="menuOverlay"></div>
 
 <!-- Hero Section -->
 <section class="hero">
@@ -236,9 +246,8 @@
             </div>
         </div>
     </footer>
-    </div>
-<script src="script.js"></script>
 
+<script src="script.js"></script>
 
 </body>
 

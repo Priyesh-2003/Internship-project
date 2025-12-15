@@ -12,6 +12,28 @@
             box-sizing: border-box;
         }
 
+        html,
+        body {
+            overflow-y: scroll;
+            overflow-x: hidden;
+        }
+
+        /* Chrome, Edge, Safari */
+        ::-webkit-scrollbar {
+            width: 0px;
+            height: 0px;
+        }
+
+        /* Firefox */
+        html {
+            scrollbar-width: none;
+        }
+
+        /* IE / old Edge */
+        body {
+            -ms-overflow-style: none;
+        }
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #0d4d6d 0%, #1a7a9e 50%, #4db8b8 100%);
@@ -20,7 +42,18 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+
+            /* keep this */
         }
+
+        /* 
+        html,
+        body {
+            height: auto;
+            overflow-x: hidden;
+            overflow-y: auto;
+        } */
+
 
         .container {
             background: white;
@@ -30,6 +63,7 @@
             width: 100%;
             padding: 40px;
             max-width: 1600px;
+
         }
 
         .header {
@@ -37,6 +71,15 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 35px;
+        }
+
+        #logo {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        #logo:hover {
+            transform: scale(1.05);
         }
 
         .logo-text {
@@ -67,6 +110,8 @@
             cursor: pointer;
             border-radius: 6px;
             transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .tab.active {
@@ -341,14 +386,15 @@
     <div class="container">
         <div class="header">
             <div>
-                <img id='logo' src="assets/Logo.avif" height="70px" alt="">
-
+                <a href="index.html">
+                    <img id='logo' src="assets/Logo.avif" height="70px" alt="">
+                </a>
             </div>
         </div>
         <div class="tabs">
             <a href='reg1.html' class="tab">Personal Details</a>
             <a href='reg2.html' class="tab">Educational Details</a>
-            <button class="tab active">Work Experience</a>
+            <a class="tab active" href="reg3.html">Work Experience</a>
         </div>
         <div class="content">
             <!-- Work Experience Section -->
@@ -589,8 +635,8 @@
             </div>
 
             <div class="action-buttons">
-                <button class="back-btn" onclick="goBack()">Back</button>
-                <button class="next-btn" onclick="submitForm()">Next</button>
+                <button class="back-btn" onclick="window.location.href='reg2.html'">Back</button>
+                <button class="next-btn" onclick="submitForm()">Submit</button>
             </div>
         </div>
     </div>
@@ -624,10 +670,6 @@
             tbody.appendChild(newRow);
         }
 
-        function goBack() {
-            alert('Returning to Educational Details');
-        }
-
         function submitForm() {
             // Collect all answers
             const answers = {};
@@ -645,18 +687,10 @@
             if (sub8b) answers['question8b'] = sub8b.value;
 
             console.log('Form submitted with answers:', answers);
-            alert('Registration form submitted successfully!');
+
+            // Redirect to home page
+            window.location.href = 'index.html';
         }
-
-        document.querySelectorAll('.tab').forEach((tab, index) => {
-            tab.addEventListener('click', function () {
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-
-                const sections = ['Personal Details', 'Educational Details', 'Work Experience'];
-                alert(`Switching to ${sections[index]}`);
-            });
-        });
     </script>
 </body>
 

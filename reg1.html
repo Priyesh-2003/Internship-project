@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>COV Registration</title>
     <style>
         * {
@@ -38,6 +38,15 @@
             margin-bottom: 35px;
         }
 
+        #logo {
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        #logo:hover {
+            transform: scale(1.05);
+        }
+
         .logo-text {
             font-size: 32px;
             font-weight: bold;
@@ -66,6 +75,8 @@
             cursor: pointer;
             border-radius: 6px;
             transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
         }
 
         .tab.active {
@@ -330,16 +341,16 @@
     <div class="container">
         <div class="header">
             <div>
-                <!-- <div class="logo-text">COV</div> -->
-                <img id='logo' src="assets/Logo.avif" height="70px" alt="">
-                <!-- <div class="subtitle">CONFEDERATION OF VALUERS (INDIA) REGISTERED</div> -->
+                <a href="index.html">
+                     <img id='logo' src="assets/Logo.avif" height="70px" alt="">
+                </a>
             </div>
         </div>
 
         <div class="tabs">
-            <a class="tab active">Personal Details</a>
+            <a class="tab active" href="reg1.html">Personal Details</a>
             <a class="tab" href="reg2.html">Educational Details</a>
-            <a href = 'reg3.html' class="tab">Work Experience</a>
+            <a href='reg3.html' class="tab">Work Experience</a>
         </div>
 
         <div class="content">
@@ -527,7 +538,7 @@
             </div>
 
             <div style="margin-top: 25px; overflow: auto;">
-                <button class="next-btn">Next</button>
+                <button class="next-btn" onclick="window.location.href='reg2.html'">Next</button>
             </div>
         </div>
     </div>
@@ -548,19 +559,8 @@
 
         document.getElementById('sameAddress').addEventListener('change', function () {
             if (this.checked) {
-                alert('Correspondence address will be copied from permanent address');
+                // Copy permanent address to correspondence address
             }
-        });
-
-        document.querySelectorAll('.tab').forEach(tab => {
-            tab.addEventListener('click', function () {
-                document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-                this.classList.add('active');
-            });
-        });
-
-        document.querySelector('.next-btn').addEventListener('click', function () {
-            alert('Moving to Educational Details');
         });
     </script>
 </body>

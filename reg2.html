@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>COV Registration - Educational Details</title>
     <style>
         * {
@@ -434,9 +434,10 @@
             </div>
 
             <div class="action-buttons">
-                <button class="back-btn" onclick="goBack()">Back</button>
-                <button class="next-btn" onclick="goNext()">Next</button>
-            </div>
+    <button class="back-btn" onclick="window.location.href='reg1.html'">Back</button>
+    <button class="next-btn" onclick="window.location.href='reg3.html'">Next</button>
+</div>
+
         </div>
     </div>
 
@@ -510,13 +511,13 @@
             tbody.appendChild(newRow);
         }
 
-        function goBack() {
-            alert('Returning to Personal Details');
-        }
+        // function goBack() {
+        //     alert('Returning to Personal Details');
+        // }
 
-        function goNext() {
-            alert('Moving to Work Experience');
-        }
+        // function goNext() {
+        //     alert('Moving to Work Experience');
+        // }
 
         document.querySelectorAll('.tab').forEach((tab, index) => {
             tab.addEventListener('click', function () {
@@ -524,7 +525,7 @@
                 this.classList.add('active');
 
                 const sections = ['Personal Details', 'Educational Details', 'Work Experience'];
-                alert(`Switching to ${sections[index]}`);
+                // alert(`Switching to ${sections[index]}`);
             });
         });
 
