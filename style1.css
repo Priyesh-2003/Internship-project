@@ -24,12 +24,9 @@ body {
 
 /* Header - CONSISTENT WITH HOME PAGE */
 header {
-  background: transparent;
-  box-shadow: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
+  background: var(--white);
+  box-shadow: 0 2px 10px rgba(0, 43, 91, 0.1);
+  position: relative;
   z-index: 1000;
 }
 
