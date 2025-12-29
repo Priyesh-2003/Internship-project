@@ -9,29 +9,33 @@
     <style>
         @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap");
 
-        :root {
-            --primary: #002b5b;
-            --accent-teal: #00a6a6;
-            --soft-bg: #f2f9ff;
-            --highlight: #38b6ff;
-            --text-dark: #012a4a;
-            --white: #ffffff;
-        }
+        
+:root {
+  --primary: #002b5b;
+  --accent-teal: #00a6a6;
+  --soft-bg: #f2f9ff;
+  --highlight: #38b6ff;
+  --text-dark: #012a4a;
+  --white: #ffffff;
+  --light-gray: #e8f4f8;
+  --hero-height: min(85vh, 600px);
+  --header-offset: 100px;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--white);
-            color: var(--text-dark);
-            overflow-x: hidden;
-            /* changed */
-            /* padding-top: 100px; */
-        }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, sans-serif;
+  overflow-x: hidden;
+  color: var(--text-dark);
+  background: var(--white);
+  line-height: 1.6;
+}
 
         /* ===== HEADER STYLES ===== */
         header {
@@ -107,7 +111,6 @@
         /* Hamburger Menu - HIDDEN ON DESKTOP */
         .hamburger {
             display: none;
-            /* Hidden by default on desktop */
             flex-direction: column;
             justify-content: space-between;
             width: 30px;
@@ -140,18 +143,6 @@
 
         .hamburger.active span:nth-child(3) {
             transform: translateY(-10.5px) rotate(-45deg);
-
-            nav {
-                display: flex;
-                gap: 10px;
-                align-items: center;
-                flex-wrap: nowrap;
-            }
-
-            nav a,
-            nav button {
-                white-space: nowrap;
-            }
         }
 
         .menu-overlay {
@@ -172,23 +163,52 @@
             opacity: 1;
         }
 
-        /* ===== HERO SECTION ===== */
+        /* ===== HERO SECTION - EXACT COPY FROM CONTACT PAGE ===== */
         .hero-section {
-            background: linear-gradient(135deg, var(--primary) 0%, #004080 100%);
-            padding: 150px 40px 80px;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-teal) 100%);
+            color: white;
+            padding: 120px 40px 120px;
             text-align: center;
             position: relative;
             overflow: hidden;
+            margin-top: 0;
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .hero-section::before {
             content: "";
             position: absolute;
-            width: 100%;
-            height: 100%;
-            opacity: 0.05;
-            background-image: linear-gradient(30deg, var(--accent-teal) 12%, transparent 12.5%, transparent 87%, var(--accent-teal) 87.5%);
-            background-size: 80px 140px;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-section::after {
+            content: "";
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) scale(1);
+            }
+            50% {
+                transform: translateY(-30px) scale(1.05);
+            }
         }
 
         .hero-content {
@@ -203,6 +223,9 @@
             color: var(--white);
             font-weight: 700;
             margin-bottom: 20px;
+            position: relative;
+            z-index: 2;
+            letter-spacing: -1px;
         }
 
         .hero-section p {
@@ -211,6 +234,8 @@
             line-height: 1.8;
             max-width: 900px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
 
         /* ===== CATEGORIES SECTION ===== */
@@ -371,7 +396,7 @@
 
         .benefits-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 35px;
             margin-top: 50px;
         }
@@ -519,7 +544,8 @@
             }
 
             .hero-section {
-                padding: 120px 20px 60px;
+                padding: 80px 20px 80px;
+                min-height: 400px;
             }
 
             .categories-section,
@@ -549,6 +575,12 @@
                 flex-direction: column;
                 text-align: center;
                 gap: 15px;
+            }
+        }
+
+        @media (max-width: 1200px) {
+            .benefits-grid {
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
@@ -585,9 +617,9 @@
     <header>
         <div class="header-content">
             <div class="logo-container">
-                <div>
-                    <img id='logo' src="assets/Logo.avif" height="70px" alt="">
-                </div>
+                <a href="index.html">
+                        <img id='logo' src="assets/Logo.avif" height="70px" alt="COV Logo">
+                    </a>
             </div>
 
             <!-- Hamburger Button -->
@@ -614,7 +646,7 @@
 
     <div class="menu-overlay" id="menuOverlay"></div>
 
-    <!-- HERO SECTION -->
+    <!-- HERO SECTION - UPDATED WITH GREENISH GRADIENT -->
     <section class="hero-section">
         <div class="hero-content">
             <h1>Membership at COV</h1>
