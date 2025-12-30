@@ -284,12 +284,9 @@
         }
 
         @keyframes float {
-
-            0%,
-            100% {
+            0%, 100% {
                 transform: translateY(0) scale(1);
             }
-
             50% {
                 transform: translateY(-30px) scale(1.05);
             }
@@ -310,6 +307,8 @@
             position: relative;
             z-index: 2;
             letter-spacing: -1px;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
         .hero-section p {
@@ -320,6 +319,8 @@
             margin: 0 auto;
             position: relative;
             z-index: 2;
+            opacity: 0;
+            transform: translateY(30px);
         }
 
         /* ===== CATEGORIES SECTION ===== */
@@ -399,7 +400,6 @@
                 opacity: 0;
                 transform: translateY(20px);
             }
-
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -492,6 +492,13 @@
             box-shadow: 0 10px 30px rgba(0, 43, 91, 0.12);
             transition: all 0.3s ease;
             border-top: 4px solid var(--accent-teal);
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .benefit-card.fade-in-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .benefit-card:hover {
@@ -1029,6 +1036,57 @@
                 this.classList.add('active');
                 const tabId = this.getAttribute('data-tab');
                 document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // ==================== BENEFIT CARDS FADE IN ANIMATION ====================
+        window.addEventListener('load', () => {
+            // Hero Section Animation
+            const heroTitle = document.querySelector('.hero-section h1');
+            const heroParagraph = document.querySelector('.hero-section p');
+
+            if (heroTitle) {
+                setTimeout(() => {
+                    heroTitle.style.transition = 'all 0.8s ease';
+                    heroTitle.style.opacity = '1';
+                    heroTitle.style.transform = 'translateY(0)';
+                }, 100);
+            }
+
+            if (heroParagraph) {
+                setTimeout(() => {
+                    heroParagraph.style.transition = 'all 0.8s ease';
+                    heroParagraph.style.opacity = '1';
+                    heroParagraph.style.transform = 'translateY(0)';
+                }, 400);
+            }
+
+            // Benefit Cards Animation
+            const benefitCards = document.querySelectorAll('.benefit-card');
+            
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const card = entry.target;
+                        const index = Array.from(benefitCards).indexOf(card);
+                        
+                        setTimeout(() => {
+                            card.style.transition = 'all 0.8s ease';
+                            card.classList.add('fade-in-visible');
+                        }, index * 150);
+                        
+                        cardObserver.unobserve(card);
+                    }
+                });
+            }, observerOptions);
+
+            benefitCards.forEach(card => {
+                cardObserver.observe(card);
             });
         });
     </script>

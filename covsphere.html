@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -15,9 +16,6 @@
             --highlight: #38b6ff;
             --text-dark: #012a4a;
             --white: #ffffff;
-            --light-gray: #e8f4f8;
-            --hero-height: min(85vh, 600px);
-            --header-offset: 100px;
         }
 
         * {
@@ -27,23 +25,18 @@
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-                Ubuntu, Cantarell, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             overflow-x: hidden;
             color: var(--text-dark);
             background: var(--white);
             line-height: 1.6;
         }
 
-        /* ==================== HEADER STYLES - BOD MATCH ==================== */
+        /* ==================== HEADER ==================== */
         header {
             background: var(--white);
             box-shadow: 0 2px 10px rgba(0, 43, 91, 0.1);
             position: relative;
-            top: 0;
-            left: 0;
-            right: 0;
-            width: 100%;
             z-index: 1000;
         }
 
@@ -55,7 +48,6 @@
             justify-content: space-between;
             align-items: center;
             gap: 20px;
-            width: 100%;
         }
 
         .logo-container {
@@ -244,19 +236,88 @@
             opacity: 1;
         }
 
-        /* ===== HIVE SECTION ===== */
-        .hive-section {
-            padding: 150px 40px 80px;
-            max-width: 1440px;
-            margin: 0 auto;
+        /* ==================== HERO BANNER ==================== */
+        .hero-section {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--accent-teal) 100%);
+            color: white;
+            padding: 80px 40px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
-        .section-title {
+        .hero-section::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            right: -10%;
+            width: 500px;
+            height: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero-section::after {
+            content: "";
+            position: absolute;
+            bottom: -30%;
+            left: -5%;
+            width: 400px;
+            height: 400px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 50%;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1);
+            }
+
+            50% {
+                transform: translateY(-30px) scale(1.05);
+            }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-section h1 {
             font-size: clamp(32px, 5vw, 48px);
+            color: var(--white);
             font-weight: 700;
-            color: var(--primary);
-            text-align: center;
-            margin-bottom: 60px;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .hero-section p {
+            font-size: clamp(16px, 2vw, 20px);
+            color: rgba(255, 255, 255, 0.9);
+            line-height: 1.8;
+            max-width: 900px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        /* ==================== HIVE SECTION ==================== */
+        .hive-section {
+            padding: 80px 40px;
+            max-width: 1440px;
+            margin: 0 auto;
         }
 
         .cards-container {
@@ -272,6 +333,13 @@
             box-shadow: 0 10px 30px rgba(0, 43, 91, 0.12);
             transition: all 0.3s ease;
             border-top: 4px solid var(--accent-teal);
+            opacity: 0;
+            transform: translateY(40px);
+        }
+
+        .card.fade-in-visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .card:hover {
@@ -309,7 +377,7 @@
             box-shadow: 0 8px 20px rgba(0, 166, 166, 0.4);
         }
 
-        /* ===== CONTACT SECTION ===== */
+        /* ==================== CONTACT SECTION ==================== */
         .contact-section {
             background: var(--primary);
             padding: 80px 40px;
@@ -323,7 +391,6 @@
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 60px;
-            position: relative;
         }
 
         .subscribe-column h2,
@@ -446,7 +513,6 @@
             height: 45px;
             background: linear-gradient(135deg, var(--accent-teal), var(--highlight));
             color: white;
-            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -458,7 +524,7 @@
             line-height: 1.7;
         }
 
-        /* ===== FOOTER ===== */
+        /* ==================== FOOTER ==================== */
         .footer {
             background: #001a33;
             padding: 25px 40px;
@@ -491,12 +557,10 @@
             gap: 20px;
         }
 
-        /* ===== RESPONSIVE DESIGN ===== */
+        /* ==================== RESPONSIVE ==================== */
         @media (max-width: 768px) {
             .header-content {
                 padding: 15px 20px;
-                flex-wrap: wrap;
-                gap: 20px;
             }
 
             #logo {
@@ -543,20 +607,9 @@
                 font-size: 16px;
                 text-align: left;
                 border-left: 3px solid transparent;
-                transition: all 0.3s ease;
-            }
-
-            nav a:hover {
-                background-color: rgba(0, 166, 166, 0.1);
-                border-left-color: var(--accent-teal);
-                transform: translateX(5px);
             }
 
             .nav-item {
-                width: 100%;
-            }
-
-            .nav-item > a {
                 width: 100%;
             }
 
@@ -571,7 +624,6 @@
                 opacity: 0;
                 visibility: visible;
                 overflow: hidden;
-                transition: all 0.3s ease;
             }
 
             .nav-item.mobile-active .dropdown {
@@ -597,8 +649,6 @@
                 width: 100% !important;
                 margin: 15px 0 0 0 !important;
                 padding: 15px 20px !important;
-                border-radius: 12px;
-                font-size: 16px;
                 text-align: center;
                 display: block !important;
             }
@@ -607,24 +657,22 @@
                 width: 100% !important;
                 margin: 10px 0 0 0 !important;
                 padding: 15px 20px !important;
-                border-radius: 12px;
-                font-size: 16px;
                 background-color: var(--accent-teal);
-                transition: all 0.3s ease;
                 display: block !important;
             }
 
-            .hive-section {
-                padding: 120px 20px 60px;
+            .hero-section {
+                padding: 60px 20px;
+                min-height: 200px;
             }
 
-            .contact-section {
-                padding: 50px 20px;
+            .hive-section {
+                padding: 60px 20px;
             }
 
             .contact-container {
-                gap: 40px;
                 grid-template-columns: 1fr;
+                gap: 40px;
             }
 
             .subscribe-form {
@@ -647,11 +695,6 @@
                 height: 45px;
             }
 
-            .hamburger {
-                width: 28px;
-                height: 22px;
-            }
-
             nav {
                 width: 260px;
                 padding: 90px 25px 25px 25px;
@@ -669,9 +712,9 @@
         }
     </style>
 </head>
+
 <body>
 
-    <!-- Header -->
     <header>
         <div class="header-content">
             <div class="logo-container">
@@ -686,21 +729,20 @@
                 <span></span>
             </button>
 
-             <nav id="navMenu">
-            <a href="membership.html">Membership</a>
-            <a href="#training">Training & Courses</a>
-            <a href="#events">Events</a>
-            <div class="nav-item">
-                <a >About Us <span class="dropdown-arrow">▼</span></a>
-                <div class="dropdown">
-                    <a href="about.html#our-story">Our Story</a>
-                    <a href="BOD.html">Board of Directors</a>
+            <nav id="navMenu">
+                <a href="membership.html">Membership</a>
+                <a href="#training">Training & Courses</a>
+                <a href="#events">Events</a>
+                <div class="nav-item">
+                    <a>About Us <span class="dropdown-arrow">▼</span></a>
+                    <div class="dropdown">
+                        <a href="about.html#our-story">Our Story</a>
+                        <a href="BOD.html">Board of Directors</a>
+                    </div>
                 </div>
-            </div>
-            <a href="covsphere.html">COV Sphere</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-
+                <a href="covsphere.html">COV Sphere</a>
+                <a href="contact.html">Contact</a>
+            </nav>
 
             <div class="nav-right">
                 <a href="reg1.html" class="register-btn-header">Register Now</a>
@@ -711,9 +753,13 @@
 
     <div class="menu-overlay" id="menuOverlay"></div>
 
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>The Hive</h1>
+        </div>
+    </section>
+
     <section class="hive-section">
-        <h1 class="section-title">The Hive</h1>
-        
         <div class="cards-container">
             <article class="card">
                 <h2 class="card-title">Articles & Journals</h2>
@@ -737,7 +783,6 @@
 
     <section class="contact-section">
         <div class="contact-container">
-
             <div class="subscribe-column">
                 <h2>STAY CONNECTED</h2>
                 <p class="subscribe-text">Subscribe to our newsletter for the latest updates and opportunities.</p>
@@ -760,13 +805,13 @@
 
             <div class="contact-column">
                 <h2>REACH US</h2>
-
                 <h3 class="office-title">Registered Office</h3>
 
                 <div class="contact-item">
                     <div class="contact-icon"><i class="fa-solid fa-location-arrow"></i></div>
                     <div class="contact-info">
-                        <p>26/A, First Cross, First Main Canara Bank Colony,<br>Subramanyapura, Bengaluru-560061, Karnataka</p>
+                        <p>26/A, First Cross, First Main Canara Bank Colony,<br>Subramanyapura, Bengaluru-560061,
+                            Karnataka</p>
                     </div>
                 </div>
 
@@ -783,17 +828,13 @@
                         <p>info@mysite.com</p>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
     <footer class="footer">
         <div class="footer-content">
-            <p class="copyright">
-                © 2025 Confederation of Valuers — All Rights Reserved
-            </p>
-
+            <p class="copyright">© 2025 Confederation of Valuers — All Rights Reserved</p>
             <div class="footer-legal">
                 <a href="faq.html">FAQ</a>
                 <a href="TandC.html">Terms & Conditions</a>
@@ -803,7 +844,6 @@
     </footer>
 
     <script>
-        // Hamburger menu
         const hamburger = document.getElementById('hamburger');
         const navMenu = document.getElementById('navMenu');
         const menuOverlay = document.getElementById('menuOverlay');
@@ -835,19 +875,17 @@
             });
         });
 
-        // Mobile dropdown toggle
         if (window.innerWidth <= 768) {
             const navItem = document.querySelector('.nav-item');
             if (navItem) {
                 const navItemLink = navItem.querySelector('a');
-                navItemLink.addEventListener('click', function(e) {
+                navItemLink.addEventListener('click', function (e) {
                     e.preventDefault();
                     navItem.classList.toggle('mobile-active');
                 });
             }
         }
 
-        // Clone right buttons into mobile menu
         const navRight = document.querySelector('.nav-right');
         if (navRight && window.innerWidth <= 768) {
             const registerBtn = navRight.querySelector('.register-btn-header');
@@ -859,6 +897,54 @@
                 navMenu.appendChild(loginClone);
             }
         }
+
+        window.addEventListener('load', () => {
+            const heroTitle = document.querySelector('.hero-section h1');
+            const heroParagraph = document.querySelector('.hero-section p');
+
+            if (heroTitle) {
+                setTimeout(() => {
+                    heroTitle.style.transition = 'all 0.8s ease';
+                    heroTitle.style.opacity = '1';
+                    heroTitle.style.transform = 'translateY(0)';
+                }, 100);
+            }
+
+            if (heroParagraph) {
+                setTimeout(() => {
+                    heroParagraph.style.transition = 'all 0.8s ease';
+                    heroParagraph.style.opacity = '1';
+                    heroParagraph.style.transform = 'translateY(0)';
+                }, 400);
+            }
+
+            const cards = document.querySelectorAll('.card');
+            const observerOptions = {
+                threshold: 0.15,
+                rootMargin: '0px 0px -50px 0px'
+            };
+
+            const cardObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const card = entry.target;
+                        const index = Array.from(cards).indexOf(card);
+
+                        setTimeout(() => {
+                            card.style.transition = 'all 0.8s ease';
+                            card.classList.add('fade-in-visible');
+                        }, index * 150);
+
+                        cardObserver.unobserve(card);
+                    }
+                });
+            }, observerOptions);
+
+            cards.forEach(card => {
+                cardObserver.observe(card);
+            });
+        });
     </script>
 </body>
+
 </html>

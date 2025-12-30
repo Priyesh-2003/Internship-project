@@ -1324,3 +1324,105 @@ nav a:hover {
     width: 100%;
   }
 }
+.hero-content {
+  position: relative;
+  max-width: 1520px;
+  margin: 0 auto;
+  padding: 0 40px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 60px;
+}
+
+.hero-text {
+  max-width: 750px;
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: column;
+  flex: 1;
+}
+
+.hero-visual {
+  position: relative;
+  width: 450px;
+  height: 450px;
+  flex-shrink: 0;
+}
+
+.floating-shapes {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+  opacity: 0.15;
+  animation: float 8s ease-in-out infinite;
+}
+
+.shape-1 {
+  width: 180px;
+  height: 180px;
+  background: linear-gradient(135deg, var(--accent-teal), var(--highlight));
+  top: 10%;
+  right: 10%;
+  animation-delay: 0s;
+}
+
+.shape-2 {
+  width: 140px;
+  height: 140px;
+  background: linear-gradient(225deg, var(--highlight), rgba(255,255,255,0.3));
+  bottom: 15%;
+  left: 5%;
+  animation-delay: 1.5s;
+  border-radius: 50%;
+}
+
+.shape-3 {
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(315deg, var(--accent-teal), rgba(255,255,255,0.2));
+  top: 40%;
+  left: 15%;
+  animation-delay: 3s;
+  border-radius: 20% 80% 80% 20% / 80% 20% 80% 20%;
+}
+
+.shape-4 {
+  width: 120px;
+  height: 120px;
+  background: linear-gradient(45deg, var(--highlight), rgba(255,255,255,0.25));
+  bottom: 35%;
+  right: 15%;
+  animation-delay: 2s;
+}
+
+.shape-5 {
+  width: 90px;
+  height: 90px;
+  background: linear-gradient(180deg, var(--accent-teal), rgba(255,255,255,0.3));
+  top: 25%;
+  left: 40%;
+  animation-delay: 4s;
+  border-radius: 40% 60% 60% 40% / 60% 40% 60% 40%;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translate(0, 0) rotate(0deg) scale(1);
+  }
+  25% {
+    transform: translate(15px, -20px) rotate(5deg) scale(1.05);
+  }
+  50% {
+    transform: translate(-10px, -30px) rotate(-5deg) scale(0.95);
+  }
+  75% {
+    transform: translate(-20px, -15px) rotate(3deg) scale(1.02);
+  }
+}

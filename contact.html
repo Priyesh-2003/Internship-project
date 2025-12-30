@@ -7,6 +7,50 @@
     <title>Contact Us - Confederation of Valuers</title>
     <link rel="stylesheet" href="style2.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" />
+    <style>
+        /* Fade-in animation styles */
+        .fade-in-element {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in-left {
+            opacity: 0;
+            transform: translateX(-40px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in-right {
+            opacity: 0;
+            transform: translateX(40px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in-visible {
+            opacity: 1 !important;
+            transform: translate(0, 0) !important;
+        }
+
+        .form-group {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.6s ease;
+        }
+
+        .info-item {
+            opacity: 0;
+            transform: translateX(30px);
+            transition: all 0.6s ease;
+        }
+
+        /* Hero text animation */
+        #heroTitle,
+        #heroSubtitle {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+    </style>
 </head>
 
 <body>
@@ -28,22 +72,20 @@
             </button>
 
             <!-- Main Navigation - Center -->
-          <nav id="navMenu">
-            <a href="membership.html">Membership</a>
-            <a href="#training">Training & Courses</a>
-            <a href="#events">Events</a>
-            <div class="nav-item">
-                <a >About Us <span class="dropdown-arrow">▼</span></a>
-                <div class="dropdown">
-                    <a href="about.html#our-story">Our Story</a>
-                    <a href="BOD.html">Board of Directors</a>
+            <nav id="navMenu">
+                <a href="membership.html">Membership</a>
+                <a href="#training">Training & Courses</a>
+                <a href="#events">Events</a>
+                <div class="nav-item">
+                    <a>About Us <span class="dropdown-arrow">▼</span></a>
+                    <div class="dropdown">
+                        <a href="about.html#our-story">Our Story</a>
+                        <a href="BOD.html">Board of Directors</a>
+                    </div>
                 </div>
-            </div>
-            <a href="covsphere.html">COV Sphere</a>
-            <a href="contact.html">Contact</a>
-        </nav>
-
-
+                <a href="covsphere.html">COV Sphere</a>
+                <a href="contact.html">Contact</a>
+            </nav>
 
             <!-- Right Side Buttons -->
             <div class="nav-right">
@@ -59,8 +101,8 @@
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>Get In Touch</h1>
-        <p>We'd love to hear from you. Reach out to us anytime!</p>
+        <h1 id="heroTitle">Get In Touch</h1>
+        <p id="heroSubtitle">We'd love to hear from you. Reach out to us anytime!</p>
     </section>
 
     <!-- Main Container -->
@@ -72,28 +114,23 @@
                 <h2>Send Us a Message</h2>
                 <form>
                     <div class="form-group">
-                        <label for="name">Full Name *</label>
-                        <input type="text" id="name" placeholder="Full Name" name="name" required>
+                        <input type="text" id="name" placeholder="Full Name *" name="name" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="email">Email Address *</label>
-                        <input type="email" id="email" placeholder="Email" name="email" required>
+                        <input type="email" id="email" placeholder="Email Address *" name="email" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="phone">Phone Number</label>
-                        <input type="tel" id="phone" placeholder="Phone" name="phone">
+                        <input type="tel" id="phone" placeholder="Phone Number" name="phone">
                     </div>
 
                     <div class="form-group">
-                        <label for="subject">Subject *</label>
-                        <input type="text" id="subject" placeholder="Subject" name="subject" required>
+                        <input type="text" id="subject" placeholder="Subject *" name="subject" required>
                     </div>
 
                     <div class="form-group">
-                        <label for="message">Message *</label>
-                        <textarea id="message" name="message" placeholder="Message" required></textarea>
+                        <textarea id="message" name="message" placeholder="Message *" required></textarea>
                     </div>
 
                     <button type="submit" class="submit-btn">Send Message</button>
@@ -122,7 +159,7 @@
                         <h3>Phone</h3>
                         <p>
                             <a href="tel:+919888858111">+91 98888 58111</a><br>
-                            <a href="tel:+919888856111">+91 98888 56111</a>
+                            <!-- <a href="tel:+919888856111">+91 98888 56111</a> -->
                         </p>
                     </div>
                 </div>
@@ -250,7 +287,191 @@
             }
         }
 
-        // ==================== END NAVIGATION SCRIPT ====================
+        // ==================== HERO SECTION FADE IN ====================
+        window.addEventListener('load', () => {
+            const heroTitle = document.getElementById('heroTitle');
+            const heroSubtitle = document.getElementById('heroSubtitle');
+
+            // Animate hero title
+            if (heroTitle) {
+                setTimeout(() => {
+                    heroTitle.style.transition = 'all 0.8s ease';
+                    heroTitle.style.opacity = '1';
+                    heroTitle.style.transform = 'translateY(0)';
+                }, 100);
+            }
+
+            // Animate hero subtitle
+            if (heroSubtitle) {
+                setTimeout(() => {
+                    heroSubtitle.style.transition = 'all 0.8s ease';
+                    heroSubtitle.style.opacity = '1';
+                    heroSubtitle.style.transform = 'translateY(0)';
+                }, 400);
+            }
+
+        // ==================== FADE-IN ANIMATIONS ====================
+        
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px'
+        };
+
+            // Get both sections
+            const contactGrid = document.querySelector('.contact-grid');
+            const contactFormSection = document.querySelector('.contact-form-section');
+            const contactInfoSection = document.querySelector('.contact-info-section');
+            
+            const formTitle = contactFormSection ? contactFormSection.querySelector('h2') : null;
+            const formGroups = document.querySelectorAll('.contact-form-section .form-group');
+            const submitBtn = document.querySelector('.submit-btn');
+            
+            const infoTitle = contactInfoSection ? contactInfoSection.querySelector('h2') : null;
+            const infoItems = document.querySelectorAll('.info-item');
+
+            // Set initial states for all elements
+            if (formTitle) {
+                formTitle.style.opacity = '0';
+                formTitle.style.transform = 'translateX(-30px)';
+            }
+
+            formGroups.forEach(group => {
+                group.style.opacity = '0';
+                group.style.transform = 'translateY(20px)';
+            });
+
+            if (submitBtn) {
+                submitBtn.style.opacity = '0';
+                submitBtn.style.transform = 'translateY(20px)';
+            }
+
+            if (infoTitle) {
+                infoTitle.style.opacity = '0';
+                infoTitle.style.transform = 'translateX(30px)';
+            }
+
+            infoItems.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateX(30px)';
+            });
+
+            // Single observer for the contact grid - triggers both sections simultaneously
+            const gridObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Animate both sections at the same time
+                        
+                        // Form Title
+                        if (formTitle) {
+                            setTimeout(() => {
+                                formTitle.style.transition = 'all 0.8s ease';
+                                formTitle.style.opacity = '1';
+                                formTitle.style.transform = 'translateX(0)';
+                            }, 200);
+                        }
+
+                        // Info Title (same timing)
+                        if (infoTitle) {
+                            setTimeout(() => {
+                                infoTitle.style.transition = 'all 0.8s ease';
+                                infoTitle.style.opacity = '1';
+                                infoTitle.style.transform = 'translateX(0)';
+                            }, 200);
+                        }
+
+                        // Form Groups (staggered)
+                        formGroups.forEach((group, index) => {
+                            setTimeout(() => {
+                                group.style.transition = 'all 0.6s ease';
+                                group.style.opacity = '1';
+                                group.style.transform = 'translateY(0)';
+                            }, 400 + (index * 100));
+                        });
+
+                        // Info Items (same timing as form groups)
+                        infoItems.forEach((item, index) => {
+                            setTimeout(() => {
+                                item.style.transition = 'all 0.6s ease';
+                                item.style.opacity = '1';
+                                item.style.transform = 'translateX(0)';
+                            }, 400 + (index * 100));
+                        });
+
+                        // Submit Button
+                        if (submitBtn) {
+                            setTimeout(() => {
+                                submitBtn.style.transition = 'all 0.8s ease';
+                                submitBtn.style.opacity = '1';
+                                submitBtn.style.transform = 'translateY(0)';
+                            }, 400 + (formGroups.length * 100));
+                        }
+
+                        gridObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+
+            // Observe the contact grid container
+            if (contactGrid) {
+                gridObserver.observe(contactGrid);
+            }
+
+            // Map Section - Fade Up
+            const mapSection = document.querySelector('.map-section');
+            if (mapSection) {
+                mapSection.style.opacity = '0';
+                mapSection.style.transform = 'translateY(40px)';
+                
+                const mapObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            mapSection.style.transition = 'all 0.8s ease';
+                            mapSection.style.opacity = '1';
+                            mapSection.style.transform = 'translateY(0)';
+                            mapObserver.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+                
+                mapObserver.observe(mapSection);
+            }
+
+            // Social Section - Fade Up
+            const socialSection = document.querySelector('.social-section');
+            const socialLinks = document.querySelectorAll('.social-links a');
+            
+            if (socialSection) {
+                socialSection.style.opacity = '0';
+                socialSection.style.transform = 'translateY(40px)';
+                
+                const socialObserver = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            socialSection.style.transition = 'all 0.8s ease';
+                            socialSection.style.opacity = '1';
+                            socialSection.style.transform = 'translateY(0)';
+                            
+                            // Animate social links
+                            socialLinks.forEach((link, index) => {
+                                link.style.opacity = '0';
+                                link.style.transform = 'scale(0.8)';
+                                setTimeout(() => {
+                                    link.style.transition = 'all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+                                    link.style.opacity = '1';
+                                    link.style.transform = 'scale(1)';
+                                }, 300 + (index * 80));
+                            });
+                            
+                            socialObserver.unobserve(entry.target);
+                        }
+                    });
+                }, observerOptions);
+                
+                socialObserver.observe(socialSection);
+            }
+        });
+
+        // ==================== END SCRIPT ====================
     </script>
 
 </body>
